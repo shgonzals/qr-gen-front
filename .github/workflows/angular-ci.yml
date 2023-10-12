@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular app
+      run: npm run build
+
+    - name: Run tests
+      run: npm run test
+
+  deploy:
+    runs-on: self-hosted
+    needs: build  # Espera a que termine el trabajo "build"
+
+    steps:
+    - name: Run app
+      uses: pm2 start "ng serve"
