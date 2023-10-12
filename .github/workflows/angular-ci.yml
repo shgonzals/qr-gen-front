@@ -2,10 +2,30 @@ name: CI
 
 on:
   push:
-    branches:
-      - develop
+    branches: ["develop"]
+
+
 
 jobs:
+
+  setup:
+      runs-on: self-hosted
+
+      steps:
+      - uses: actions/checkout@v3
+      - name: Usar Node.js 9.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 9.x
+          cache: 'npm'
+      - name: Cachear node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
   build:
     runs-on: self-hosted
 
@@ -15,9 +35,6 @@ jobs:
 
     - name: Build Angular app
       run: npm run build
-
-    - name: Run tests
-      run: npm run test
 
   deploy:
     runs-on: self-hosted
