@@ -6,9 +6,9 @@ import { GeneratorComponent } from './generator/generator.component';
 
 const routes: Routes = [
   { path: 'qrgen', component: GeneratorComponent, data: { animation: 'fade' }},
-  { path: 'welcome', component: HomeComponent, data: { animation: 'fade' }},
-  { path: '', redirectTo: 'welcome', pathMatch : 'full', data: { animation: 'fade' }},
-  { path: '**', redirectTo: 'welcome', pathMatch : 'full', data: { animation: 'fade' }}
+  { path: '', component: HomeComponent, data: { animation: 'fade' }}
+  //{ path: '', redirectTo: 'welcome', pathMatch : 'full', data: { animation: 'fade' }},
+  //{ path: '**', redirectTo: 'welcome', pathMatch : 'full', data: { animation: 'fade' }}
 ];
 
 
