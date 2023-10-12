@@ -16,6 +16,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ColorPickerModule,
     MatCardModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

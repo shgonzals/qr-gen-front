@@ -14,9 +14,9 @@
       <div class="el">
         <mat-label>Tipo de QR</mat-label>
         <br>
-        <mat-radio-group [(ngModel)]="seleccion" >
-          <mat-radio-button value="opcion1">Estándar</mat-radio-button>
-          <mat-radio-button value="opcion2">Punteado</mat-radio-button>
+        <mat-radio-group [(ngModel)]="type" >
+          <mat-radio-button [value]="1">Estándar</mat-radio-button>
+          <mat-radio-button [value]="2">Punteado</mat-radio-button>
         </mat-radio-group>
       </div>
 
