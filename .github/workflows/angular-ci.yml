@@ -42,4 +42,4 @@ jobs:
 
     steps:
     - name: Run app
-      run: pm2 reload 0
+      run: pm2 reload 1
