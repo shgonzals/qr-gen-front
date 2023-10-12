@@ -4,21 +4,19 @@ on:
   push:
     branches: ["develop"]
 
-
-
 jobs:
-
   setup:
       runs-on: self-hosted
 
+
       steps:
       - uses: actions/checkout@v3
-      - name: Usar Node.js 9.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 9.x
+          node-version: 18.x
           cache: 'npm'
-      - name: Cachear node_modules
+      - name: Cache node_modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -28,17 +26,18 @@ jobs:
 
   build:
     runs-on: self-hosted
+    needs: setup
 
     steps:
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Build Angular app
       run: npm run build
 
   deploy:
     runs-on: self-hosted
-    needs: build  # Espera a que termine el trabajo "build"
+    needs: build
 
     steps:
     - name: Run app
