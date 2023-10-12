@@ -9,11 +9,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Check app status
-        use: pm2 status 0
+        run: pm2 status 0
       - name: Stop app
-        use: pm2 stop 0
+        run: pm2 stop 0
       - name: Check app status
-        use: pm2 status 0
+        run: pm2 status 0
 
   setup:
     runs-on: self-hosted
