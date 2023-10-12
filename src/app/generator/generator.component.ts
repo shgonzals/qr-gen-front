@@ -13,7 +13,7 @@ export class GeneratorComponent {
   url: string = "www.google.es";
   seleccion: string = "1";
   color: string = '#ff4081';
-  image: string = "./assets/images/qrcode-solid.svg";
+  image: string = "";
 
   generarQR() {
     // Lógica para ejecutar la acción cuando se hace clic en el botón

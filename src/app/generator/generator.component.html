@@ -27,14 +27,14 @@
 
       <br>
       <div class="el">
-        <button mat-raised-button color="accent" (click)="generarQR()">Generar</button>
+        <button mat-raised-button color="accent" (click)="generarQR()" style="margin-left: 40%; margin-top: 5px;">Generar</button>
       </div>
 
 
 
     </div>
     <div class="contenedor">
-      <div class="el-img">
+      <div class="el-img" *ngIf="image">
       <img [src]="image"  width="300">
       </div>
     </div>

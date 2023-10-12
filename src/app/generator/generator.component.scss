@@ -7,25 +7,25 @@
 }
 
 .contenedores {
-  display: flex;   //justify-content: space-between;
+  display: flex;   justify-content: space-between;
   width: 70%; }
 
 .contenedor {
-  width: 48%; /* Puedes ajustar el ancho según tus necesidades */
+  width: 48%;
   text-align: right;
   padding: 10px;
 }
 
 .el {
-  width: 100%; /* Puedes ajustar el ancho según tus necesidades */
+  width: 100%;
   text-align: left;
   padding: 5px;
 }
 
 .el-img {
-  width: 100%; /* Puedes ajustar el ancho según tus necesidades */
+  width: 100%;
   text-align: left;
-  padding: 0 0 0 20%;
+  padding: 0 0 0 40%;
 }
 
 
