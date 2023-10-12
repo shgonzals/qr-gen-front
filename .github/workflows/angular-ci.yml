@@ -8,7 +8,6 @@ jobs:
   setup:
       runs-on: self-hosted
 
-
       steps:
       - name: Stop app
         run: pm2 stop 0
@@ -18,13 +17,6 @@ jobs:
         with:
           node-version: 18.x
           cache: 'npm'
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
   build:
     runs-on: self-hosted
