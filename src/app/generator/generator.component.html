@@ -1,0 +1,42 @@
+<div [@fadeAnimation] class="contenedor-principal">
+ <div class="el" style="padding: 0%;">
+  <h1 style="margin: 0 0 0 15%"><b>Generador QR</b></h1>
+ </div>
+  <div class="contenedores">
+    <div class="contenedor">
+      <div class="el">
+      <mat-label>URL</mat-label>
+        <mat-form-field class="el">
+          <input matInput placeholder="URL" [(ngModel)]="url" >
+        </mat-form-field>
+      </div>
+
+      <div class="el">
+        <mat-label>Tipo de QR</mat-label>
+        <br>
+        <mat-radio-group [(ngModel)]="seleccion" >
+          <mat-radio-button value="opcion1">Estándar</mat-radio-button>
+          <mat-radio-button value="opcion2">Punteado</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="el">
+        <mat-label>Color</mat-label>
+        <input [(colorPicker)]="color" [style.background-color]="color" [value]="color">
+      </div>
+
+      <br>
+      <div class="el">
+        <button mat-raised-button color="accent" (click)="generarQR()">Generar</button>
+      </div>
+
+
+
+    </div>
+    <div class="contenedor">
+      <div class="el-img">
+      <img [src]="image"  width="300">
+      </div>
+    </div>
+  </div>
+</div>
