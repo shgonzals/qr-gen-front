@@ -25,4 +25,4 @@ jobs:
 
     steps:
     - name: Run app
-      uses: pm2 start "ng serve"
+      run: pm2 start "ng serve"
