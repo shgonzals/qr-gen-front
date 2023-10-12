@@ -29,10 +29,12 @@ export class GeneratorComponent {
 debugger;
     this.generateService.generarQR(this.data).subscribe(response => {
       debugger;
+
       const arrayBufferView = new Uint8Array(response);
-      const blob = new Blob([arrayBufferView], { type: 'image/jpeg' });
+      const blob = new Blob([arrayBufferView], { type: 'image/png' });
       const urlCreator = window.URL || window.webkitURL;
       this.image = urlCreator.createObjectURL(blob);
+
     });
 
   }
