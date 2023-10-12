@@ -7,8 +7,10 @@
 }
 
 .contenedores {
-  display: flex;   justify-content: space-between;
-  width: 70%; }
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
 
 .contenedor {
   width: 48%;
@@ -28,8 +30,28 @@
   padding: 0 0 0 40%;
 }
 
-
 input {
   width: 100%;
   margin-bottom: 10px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .contenedor-principal {
+    margin: 10% 0;
+  }
+
+  .contenedores {
+    flex-direction: column;
+  }
+
+  .contenedor {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .el-img {
+    padding: 0;
+  }
 }

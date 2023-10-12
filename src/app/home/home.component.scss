@@ -1,9 +1,8 @@
-
 .icon {
-  margin: 0 0 0 0;
+  margin: 10% 0 0 0;
 }
 
-.home{
+.home {
   justify-content: center;
 }
 
@@ -16,11 +15,28 @@
 }
 
 .contenedores {
-  display: flex;   //justify-content: space-between;
-  width: 70%; }
+  display: flex;
+  flex-direction: row; /* Cambiamos la dirección a 'row' en lugar de 'column' */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  justify-content: space-between;
+  width: 70%;
+}
 
 .contenedor {
-  width: 48%; /* Puedes ajustar el ancho según tus necesidades */
-  //text-align: right;
-  //padding: 10px;
+  width: 48%;
+  /* Puedes ajustar el ancho según tus necesidades */
+  /* text-align: right; */
+  /* padding: 10px; */
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .contenedores {
+    flex-direction: column; /* Cambiamos de nuevo a 'column' en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .contenedor {
+    width: 100%; /* Hacemos que los contenedores ocupen el ancho completo en pantallas pequeñas */
+  }
 }
