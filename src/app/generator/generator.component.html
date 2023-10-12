@@ -34,8 +34,9 @@
 
     </div>
     <div class="contenedor">
-      <div class="el-img" *ngIf="image">
-      <img [src]="image"  width="300">
+      <div class="el-img">
+        <mat-spinner color="accent" style="margin-left: 20%; margin-top: 15%; width: 10%;" *ngIf="isLoading"></mat-spinner>
+        <img [src]="image"  width="300">
       </div>
     </div>
   </div>

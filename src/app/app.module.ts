@@ -17,6 +17,10 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
 
 
 @NgModule({
@@ -25,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     TopbarComponent,
     FooterComponent,
     GeneratorComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

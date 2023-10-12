@@ -3,6 +3,8 @@ import { fadeAnimation } from  '../../animations/fade.animation';
 import { HttpClient } from '@angular/common/http';
 import { QrGenModel } from '../models/qrgen-model';
 import { GenerateQRService } from '../services/generate-qr-service';
+import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -13,30 +15,41 @@ import { GenerateQRService } from '../services/generate-qr-service';
 })
 export class GeneratorComponent {
 
-  url: string = "www.google.es";
+  url: string = "qrgen.shgonzals.es/";
   type: number = 1;
   color: string = '#ff4081';
   image: string = "";
+  isLoading: boolean = false;
 
   data: QrGenModel = new QrGenModel();
 
-  constructor(private http: HttpClient, private generateService: GenerateQRService) {}
+  constructor(private http: HttpClient, private generateService: GenerateQRService, public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ErrorDialogComponent);
+  }
 
   generarQR() {
+    this.image = "";
+    this.isLoading = true;
     this.data.rgb = this.hexToRgb(this.color);
     this.data.content = this.url;
     this.data.type = this.type;
-debugger;
     this.generateService.generarQR(this.data).subscribe(response => {
-      debugger;
-
       const arrayBufferView = new Uint8Array(response);
       const blob = new Blob([arrayBufferView], { type: 'image/png' });
       const urlCreator = window.URL || window.webkitURL;
-      this.image = urlCreator.createObjectURL(blob);
 
+      setTimeout(() => {
+        this.image = urlCreator.createObjectURL(blob);
+        this.isLoading = false;
+      }, 1000);
+
+    }, error => {
+      console.log(error);
+      this.isLoading = false;
+      this.openDialog();
     });
-
   }
 
   hexToRgb(hex: string): number[] {
