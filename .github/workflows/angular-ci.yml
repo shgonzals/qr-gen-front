@@ -21,9 +21,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          submodules: 'recursive'
-          fetch-depth: 0
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -50,5 +47,9 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
+      - name: Check app status
+        run: pm2 status 0
       - name: Reload app
         run: pm2 reload 0
+      - name: Check app status
+        run: pm2 status 0
