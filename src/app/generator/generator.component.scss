@@ -75,6 +75,12 @@ input {
 }
 
 @media screen and (max-width: 1200px) {
+
+
+  .radiobtn{
+    display: grid;
+  }
+
   .colorpicker-label{
     margin-left: 15%;
     display: table;
@@ -92,7 +98,12 @@ input {
 
   .colorpicker-div{
     margin-left: 50%;
-    margin-top: -15%;
+    margin-top: -20%;
+  }
+
+  .el-button{
+    margin-top: 10px;
+    margin-left: -5%;
   }
 
 }
@@ -138,8 +149,8 @@ input {
   }
 
   .colorpicker{
-    margin-top: -10%;
-    margin-left: 60%;
+    margin-top: -5%;
+    margin-left: -25%;
     width: 50px;
     height: 50px;
   }
