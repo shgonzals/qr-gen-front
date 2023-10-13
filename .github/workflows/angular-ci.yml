@@ -38,7 +38,7 @@ jobs:
     needs: build
     steps:
       - name: Copy dist
-        run: cp -r /home/silen/qr-front-runner/qr-front/qr-gen-front/qr-gen-front/dist/ /var/www/qrgen/
+        run: cp -r /home/silen/qr-front-runner/qr-front/qr-gen-front/qr-gen-front/dist/qr-gen-front/* /var/www/qrgen/
       - name: Set flag
         run: touch /home/silen/qr-front-runner/deploys/ok
 
