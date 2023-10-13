@@ -17,8 +17,8 @@ export class GeneratorComponent {
 
   url: string = "qrgen.shgonzals.es";
   type: number = 1;
-  color: string = '#ff4081';
-  image: string = "";
+  color: string = '#000000';
+  image: string = "./assets/images/qrcode-solid.svg";
   isLoading: boolean = false;
 
   data: QrGenModel = new QrGenModel();
