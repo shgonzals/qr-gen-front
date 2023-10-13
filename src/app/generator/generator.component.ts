@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class GeneratorComponent {
 
-  url: string = "qrgen.shgonzals.es/";
+  url: string = "qrgen.shgonzals.es";
   type: number = 1;
   color: string = '#ff4081';
   image: string = "";

@@ -19,33 +19,27 @@
           <mat-radio-button [value]="2">Punteado</mat-radio-button>
         </mat-radio-group>
 
-        <mat-label style="margin-left: 15%;">Selecciona un color:</mat-label>
-        <input [(colorPicker)]="color" [style.background-color]="color" readonly style="width:  50px; height: 50px; margin-left: 2%; border: none; border-radius: 10px;">
-
+        <div class="colorpicker-div">
+          <mat-label class="colorpicker-label">Selecciona un color:</mat-label>
+          <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
+        </div>
       </div>
-
-      <!--
-      <div class="el">
-        <mat-label>Color</mat-label>
-        <br>
-        <br>
-        <input [(colorPicker)]="color" [style.background-color]="color" readonly style="width:  50px; height: 50px;">
-      </div>
-
-    -->
 
       <br>
-      <div class="el">
-        <button mat-raised-button color="accent" (click)="generarQR()" style="margin-left: 40%; margin-top: 5px;">Generar</button>
+      <div class="el-button">
+        <button mat-raised-button color="accent" (click)="generarQR()" class="btnGenerar">Generar</button>
       </div>
 
 
 
     </div>
     <div class="contenedor">
-      <div class="el-img">
-        <mat-spinner color="accent" style="margin-left: 20%; margin-top: 15%; width: 10%;" *ngIf="isLoading"></mat-spinner>
-        <img [src]="image"  width="300">
+      <mat-spinner color="accent" class="spinner" *ngIf="isLoading"> <!--*ngIf="isLoading" -->
+
+      </mat-spinner>
+       <div class="el-img">
+
+        <img [src]="image"  class="qr" >
       </div>
     </div>
   </div>
