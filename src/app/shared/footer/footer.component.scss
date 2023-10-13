@@ -1,8 +1,9 @@
 .footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: #ff4081;
     width: 100%;
+    z-index: 10;
 }
 
 span{
