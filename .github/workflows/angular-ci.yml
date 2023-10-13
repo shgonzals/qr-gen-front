@@ -31,5 +31,5 @@ jobs:
     needs: setup
     steps:
       - name: Build Angular app
-        run: ng build --configuration=production
+        run: npm run build --production
 
