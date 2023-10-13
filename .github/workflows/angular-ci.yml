@@ -33,3 +33,12 @@ jobs:
       - name: Build Angular app
         run: npm run production
 
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Copy dist
+        run: cp /home/silen/qr-front-runner/qr-front/qr-gen-front/qr-gen-front/dist/ /var/www/qrgen/
+      - name: Set flag
+        run: touch /home/silen/qr-front-runner/deploys/ok
+
