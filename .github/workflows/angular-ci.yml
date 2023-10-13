@@ -5,19 +5,9 @@ on:
     branches: ["develop"]
 
 jobs:
-  pre-setup:
-    runs-on: self-hosted
-    steps:
-      - name: Check app status
-        run: pm2 status 0
-      - name: Stop app
-        run: pm2 stop 0
-      - name: Check app status
-        run: pm2 status 0
 
   setup:
     runs-on: self-hosted
-    needs: pre-setup
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -41,15 +31,5 @@ jobs:
     needs: setup
     steps:
       - name: Build Angular app
-        run: npm run build
+        run: ng build --configuration=production
 
-  deploy:
-    runs-on: self-hosted
-    needs: build
-    steps:
-      - name: Check app status
-        run: pm2 status 0
-      - name: Reload app
-        run: pm2 reload 0
-      - name: Check app status
-        run: pm2 status 0
