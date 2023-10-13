@@ -62,6 +62,7 @@ input {
 .btnGenerar{
   width: 100%;
   font-size: 16px;
+  margin-top: 10px;
 }
 
 .spinner{
@@ -82,9 +83,8 @@ input {
   }
 
   .colorpicker-label{
-    margin-left: 15%;
+    //margin-left: 15%;
     display: table;
-    //width: 10%;
   }
 
   .colorpicker{
@@ -98,12 +98,12 @@ input {
 
   .colorpicker-div{
     margin-left: 50%;
-    margin-top: -20%;
+    margin-top: -23%;
+    align-items: center;
   }
 
   .el-button{
     margin-top: 10px;
-    margin-left: -5%;
   }
 
 }
@@ -138,11 +138,13 @@ input {
   .el-img {
     padding: 0;
     margin-bottom: 20%;
+    text-align: center;
   }
 
   .el-button{
     margin-top: 5px;
     margin-left: -5%;
+    display: block;
   }
 
   .colorpicker-div{
