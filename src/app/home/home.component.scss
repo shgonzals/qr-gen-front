@@ -53,3 +53,49 @@ body, html {
   }
 }
 
+//Animaciones
+@keyframes fadeInR {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInT {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.titulo {
+  animation: fadeInR 0.5s ease-out;
+}
+.icon img {
+  animation: fadeIn 0.5s ease-out;
+}
+@media (max-width: 768px) {
+  .icon img {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .titulo {
+    animation: fadeInT 0.5s ease-out;
+  }
+}
