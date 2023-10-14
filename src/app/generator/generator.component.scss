@@ -2,182 +2,99 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin: 5% 0 0 0;
+  justify-content: center;
+  height: 600px;
 }
 
 .contenedores {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.contenedor-options {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contenedor-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.optionBox {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  width: 70%;
-}
-
-.contenedor {
-  width: 48%;
-  text-align: right;
-  padding: 10px;
-}
-
-.el {
   width: 100%;
-  text-align: left;
-  padding: 5px;
 }
-
-.el-img {
-  width: 100%;
-  text-align: left;
-  padding: 0 0 0 40%;
+.mat-label {
+  font-weight: bold;
+  margin-right: 15px;
 }
 
 input {
   width: 100%;
-  margin-bottom: 10px;
 }
 
-.colorpicker-label{
-  width: 80%;
+.formfield {
+  width: 90%;
 }
 
-.colorpicker{
-  //margin-left: 20%;
-  border: none;
-  border-radius: 10px;
-  margin-top: 5%;
-  //width: 30%;
-  height: 50px;
+.btnGenerar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+  }
 }
 
-.colorpicker-div{
-  margin-left: 50%;
-  margin-top: -12%;
+.colorpicker {
+  border-radius: 40px;
+  width: 30px;
+  height: 30px;
+  margin: 10px
+}
+
+.qr {
+  margin-left: 50px;
+  max-width: 350px; 
+  max-height: 350px;
   display: flex;
 }
 
-.el-button{
-  //margin-left: 30%;
+.spinner {
+  margin-left: 50px;
+  max-width: 350px; 
+  max-height: 350px;
   display: flex;
 }
 
-.btnGenerar{
-  width: 100%;
-  font-size: 16px;
-  margin-top: 10px;
-}
 
-.spinner{
-  margin-left: 60%;
-  margin-top: 15%;
-  width: 10%;
-}
-
-.qr{
-  width: 300px;
-}
-
-@media screen and (max-width: 1200px) {
-
-
-  .radiobtn{
-    display: grid;
-  }
-
-  .colorpicker-label{
-    //margin-left: 15%;
-    display: table;
-  }
-
-  .colorpicker{
-    margin-left: 20%;
-    border: none;
-    border-radius: 10px;
-    margin-top: 5%;
-    width: 70%;
-    height: 20px;
-  }
-
-  .colorpicker-div{
-    margin-left: 50%;
-    margin-top: -23%;
-    align-items: center;
-  }
-
-  .el-button{
-    margin-top: 10px;
-  }
-
-}
-
-/* Media query para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  .contenedor-principal {
-    margin: 10% 0;
-  }
-
-  .radiobtn{
-    display: flex;
-    margin-bottom: 10%;
-  }
-
+@media (max-width: 768px) {
   .contenedores {
     flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
   }
 
   .contenedor {
     width: 100%;
-    text-align: center;
-    padding: 10px;
   }
 
-  .el {
-    width: 100%;
-    text-align: left;
-    padding: 5px;
-  }
-
-  .el-img {
-    padding: 0;
-    margin-bottom: 20%;
-    text-align: center;
-  }
-
-  .el-button{
-    margin-top: 5px;
-    margin-left: -5%;
-    display: block;
-  }
-
-  .colorpicker-div{
-    margin-top: 5%;
-    margin-left: 0%;
-  }
-
-  .colorpicker-label{
-    margin-left: 4%;
-  }
-
-  .colorpicker{
-    margin-top: -5%;
-    margin-left: -25%;
-    width: 50px;
-    height: 50px;
-  }
-
-  .spinner{
-    margin-top: 35%;
-    margin-left: 30%;
-    width: 30px;
-    height: 30px;
-  }
-
-  .qr{
-    width: 200px;
-    margin-left: -25px;
-  }
-
-  .btnGenerar{
-    width: 300px;
-    height: 50px;
-    font-size: 20px;
+  .qr {
+    margin-left: 0px;
+    width: 90%;
+    max-height: 300px;
+    margin-top: 25%;
   }
 }
