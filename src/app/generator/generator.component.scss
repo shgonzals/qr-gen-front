@@ -26,6 +26,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: auto;
 }
 .optionBox {
   display: flex;
@@ -91,10 +92,21 @@ input {
     width: 100%;
   }
 
-  .qr {
+  .qr{
     margin-left: 0px;
-    width: 90%;
-    max-height: 300px;
-    margin-top: 25%;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  .spinner{
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 40%;
+  }
+  .optionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
   }
 }
