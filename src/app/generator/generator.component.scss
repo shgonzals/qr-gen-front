@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 600px;
+  height: calc(90vh);
 }
 
 .contenedores {
@@ -34,10 +34,11 @@
   justify-content: space-between;
   width: 100%;
 }
+
 .mat-label {
-  font-weight: bold;
-  margin-right: 15px;
+  font-weight: 600;
   font-size:large;
+  padding: 10px;
 }
 
 input {
@@ -45,7 +46,7 @@ input {
 }
 
 .formfield {
-  width: 100%;
+  width: 92%;
 }
 
 .btnGenerar {
@@ -82,7 +83,6 @@ input {
   display: flex;
 }
 
-
 @media (max-width: 768px) {
   .contenedores {
     flex-direction: column;
@@ -97,18 +97,46 @@ input {
   .qr{
     margin-left: 0px;
     width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   .spinner{
     margin-left: 0px;
     width: 100%;
-    margin-top: 40%;
+    margin-top: 15%;
   }
-  .optionBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+ .qrStyleSelector{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ }
+.contenedor-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: auto;
+  margin-bottom: 50px;
+}
+.radiobtn{
+  display: flex;
+  flex-direction: column;
   }
+  .mat-label {
+  font-weight: 500;
+  font-size:large;
+}
+.formfield {
+  width: 90%;
+}
 }
