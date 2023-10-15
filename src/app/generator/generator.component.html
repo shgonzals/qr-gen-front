@@ -3,11 +3,11 @@
       <div class="contenedor-options">
         <div>
 
-          <div>
-            <mat-label class="mat-label" style="justify-content: left;">URL</mat-label>
-              <mat-form-field class="formfield">
-                <input matInput [(ngModel)]="url" maxLength="500">
-              </mat-form-field>
+          <div class="urlSelector">
+            <mat-label class="mat-label">URL</mat-label>
+            <mat-form-field class="formfield">
+              <input matInput [(ngModel)]="url" maxLength="500">
+            </mat-form-field>
           </div>
           
           <div class="optionBox">
@@ -19,7 +19,7 @@
               </mat-radio-group>
             </div>
 
-            <div>
+            <div class="optionBox" style="flex-direction: column!important;">
               <mat-label class="mat-label" style="margin-right: 0!important;">Seleccionar color:</mat-label>
               <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
             </div>
