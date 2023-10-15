@@ -8,6 +8,7 @@
 
 .contenedores {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 90%;
@@ -28,27 +29,40 @@
   width: 100%;
   height: auto;
 }
+
 .optionBox {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
+
 .mat-label {
   font-weight: 600;
-  font-size:large;
+  font-size:medium;
   padding: 10px;
 }
 
 input {
   width: 100%;
 }
-
-.formfield {
-  width: 92%;
+.urlSelector{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .formfield {
+    width: calc(100vh - 10%);
+  }
 }
-
+.qrStyleSelector{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .btnGenerar {
   display: flex;
   justify-content: center;
@@ -83,13 +97,60 @@ input {
   display: flex;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
+
   .contenedores {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 25%;
   }
 
+  .optionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .qrStyleSelector{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mat-label {
+    font-weight: 500;
+    font-size:large;
+  }
+
+  .urlSelector{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10%;
+
+    .mat-label {
+      font-weight: 500;
+      font-size:large;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center ;
+      width: 10%;
+    }
+    .formfield {
+      display: flex;
+      align-self: right;
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
   .contenedor {
     width: 100%;
   }
@@ -97,46 +158,67 @@ input {
   .qr{
     margin-left: 0px;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 10%;
   }
 
   .spinner{
     margin-left: 0px;
     width: 100%;
-    margin-top: 15%;
+    margin-top: 10%;
   }
-.optionBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 
- .qrStyleSelector{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
- }
-.contenedor-img {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: auto;
-  margin-bottom: 50px;
-}
-.radiobtn{
-  display: flex;
-  flex-direction: column;
+  .optionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
+
+  .qrStyleSelector{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .radiobtn{
+    display: flex;
+    flex-direction: column;
+    }
+
   .mat-label {
-  font-weight: 500;
-  font-size:large;
-}
-.formfield {
-  width: 90%;
-}
+    font-weight: 500;
+    font-size: large;
+  }
+
+  .urlSelector{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40%;
+
+    .formfield {
+      width: 100%;
+    }
+
+  }
+  
+  .contenedores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
