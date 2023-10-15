@@ -37,6 +37,7 @@
 .mat-label {
   font-weight: bold;
   margin-right: 15px;
+  font-size:large;
 }
 
 input {
@@ -44,7 +45,7 @@ input {
 }
 
 .formfield {
-  width: 90%;
+  width: 100%;
 }
 
 .btnGenerar {
@@ -60,7 +61,8 @@ input {
 }
 
 .colorpicker {
-  border-radius: 40px;
+  border: none;
+  border-radius: 10px;
   width: 30px;
   height: 30px;
   margin: 10px

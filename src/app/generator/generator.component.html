@@ -4,7 +4,7 @@
         <div>
 
           <div>
-            <mat-label class="mat-label">URL</mat-label>
+            <mat-label class="mat-label" style="display: flex; justify-content: center; margin: 10px;">URL</mat-label>
               <mat-form-field class="formfield">
                 <input matInput [(ngModel)]="url" maxLength="500">
               </mat-form-field>
@@ -12,7 +12,7 @@
           
           <div class="optionBox">
             <div>
-              <mat-label class="mat-label">Tipo de QR</mat-label>
+              <mat-label class="mat-label">Estilo de QR</mat-label>
               <mat-radio-group [(ngModel)]="type" class="radiobtn" >
                 <mat-radio-button [value]="1">Estándar</mat-radio-button>
                 <mat-radio-button [value]="2">Punteado</mat-radio-button>
