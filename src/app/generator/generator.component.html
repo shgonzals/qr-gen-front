@@ -4,23 +4,23 @@
         <div>
 
           <div>
-            <mat-label class="mat-label" style="display: flex; justify-content: center; margin: 10px;">URL</mat-label>
+            <mat-label class="mat-label" style="justify-content: left;">URL</mat-label>
               <mat-form-field class="formfield">
                 <input matInput [(ngModel)]="url" maxLength="500">
               </mat-form-field>
           </div>
           
           <div class="optionBox">
-            <div>
+            <div class="qrStyleSelector">
               <mat-label class="mat-label">Estilo de QR</mat-label>
-              <mat-radio-group [(ngModel)]="type" class="radiobtn" >
-                <mat-radio-button [value]="1">Estándar</mat-radio-button>
-                <mat-radio-button [value]="2">Punteado</mat-radio-button>
+              <mat-radio-group [(ngModel)]="type" >
+                <mat-radio-button class="radiobtn" [value]="1">Estándar</mat-radio-button>
+                <mat-radio-button class="radiobtn" [value]="2">Punteado</mat-radio-button>
               </mat-radio-group>
             </div>
 
             <div>
-              <mat-label class="mat-label" style="margin-right: 0!important;">Selecciona un color:</mat-label>
+              <mat-label class="mat-label" style="margin-right: 0!important;">Seleccionar color:</mat-label>
               <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
             </div>
           </div>  
