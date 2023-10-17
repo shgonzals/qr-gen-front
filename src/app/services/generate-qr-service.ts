@@ -8,7 +8,7 @@ import { QrGenModel } from '../models/qrgen-model';
 export class GenerateQRService {
   constructor(private http: HttpClient) {}
 
-  GEN_API :string = "https://api-qrgen.shgonzals.es/generateQR";
+  GEN_API :string = "https://qrgen.shgonzals.es/api/generateQR";
 
   generarQR(data: QrGenModel) {
     const headers = new HttpHeaders({
