@@ -1,44 +1,43 @@
-<div [@fadeAnimation] class="contenedor-principal">
- <div class="el" style="padding: 0%;">
-  <h1 style="margin: 0 0 0 15%"><b>Generador QR</b></h1>
- </div>
-  <div class="contenedores">
-    <div class="contenedor">
-      <div class="el">
-      <mat-label>URL</mat-label>
-        <mat-form-field class="el" style="height: 70px;">
-          <input matInput [(ngModel)]="url" maxLength="500">
-        </mat-form-field>
-      </div>
+  <div [@fadeAnimation] class="contenedor-principal">
+    <div class="contenedores">
+      <div class="contenedor-options">
+        <div>
 
-      <div class="el">
-        <mat-label>Tipo de QR</mat-label>
-        <br>
-        <mat-radio-group [(ngModel)]="type" class="radiobtn" >
-          <mat-radio-button [value]="1">Estándar</mat-radio-button>
-          <mat-radio-button [value]="2">Punteado</mat-radio-button>
-        </mat-radio-group>
+          <div class="urlSelector">
+            <mat-label class="mat-label">URL</mat-label>
+            <mat-form-field class="formfield">
+              <input matInput [(ngModel)]="url" maxLength="500">
+            </mat-form-field>
+          </div>
+          
+          <div class="optionBox">
+            <div class="qrStyleSelector">
+              <mat-label class="mat-label">Estilo de QR</mat-label>
+              <mat-radio-group [(ngModel)]="type" >
+                <mat-radio-button class="radiobtn" [value]="1">Estándar</mat-radio-button>
+                <mat-radio-button class="radiobtn" [value]="2">Punteado</mat-radio-button>
+              </mat-radio-group>
+            </div>
 
-        <div class="colorpicker-div">
-          <mat-label class="colorpicker-label">Selecciona un color:</mat-label>
-          <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
+            <div class="optionBox" style="flex-direction: column!important;">
+              <mat-label class="mat-label" style="margin-right: 0!important;">Seleccionar color:</mat-label>
+              <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
+            </div>
+          </div>  
+          
         </div>
+
+        <div class="btnGenerar">
+          <button mat-raised-button color="accent" (click)="generarQR()">Generar</button>
+        </div>
+          
       </div>
 
-      <br>
-      <div class="el-button">
-        <button mat-raised-button color="accent" (click)="generarQR()" class="btnGenerar">Generar</button>
+      <div class="contenedor-img">
+        <mat-spinner color="accent" class="spinner" *ngIf="isLoading"> <!--*ngIf="isLoading" -->
+        </mat-spinner>
+        <img [src]="image"  class="qr">
       </div>
 
-
-
-    </div>
-    <div class="contenedor">
-      <mat-spinner color="accent" class="spinner" *ngIf="isLoading"> <!--*ngIf="isLoading" -->
-      </mat-spinner>
-       <div class="el-img">
-        <img [src]="image"  class="qr" >
-      </div>
     </div>
   </div>
-</div>

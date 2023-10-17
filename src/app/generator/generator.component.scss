@@ -2,182 +2,223 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin: 5% 0 0 0;
+  justify-content: center;
+  height: calc(90vh);
 }
 
 .contenedores {
   display: flex;
-  justify-content: space-between;
-  width: 70%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }
 
-.contenedor {
-  width: 48%;
-  text-align: right;
+.contenedor-options {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contenedor-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.mat-label {
+  font-weight: 600;
+  font-size:medium;
   padding: 10px;
-}
-
-.el {
-  width: 100%;
-  text-align: left;
-  padding: 5px;
-}
-
-.el-img {
-  width: 100%;
-  text-align: left;
-  padding: 0 0 0 40%;
 }
 
 input {
   width: 100%;
-  margin-bottom: 10px;
+}
+.urlSelector{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .formfield {
+    width: calc(100vh - 10%);
+  }
+}
+.qrStyleSelector{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.btnGenerar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+  }
 }
 
-.colorpicker-label{
-  width: 80%;
-}
-
-.colorpicker{
-  //margin-left: 20%;
+.colorpicker {
   border: none;
   border-radius: 10px;
-  margin-top: 5%;
-  //width: 30%;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+  margin: 10px
 }
 
-.colorpicker-div{
-  margin-left: 50%;
-  margin-top: -12%;
+.qr {
+  margin-left: 50px;
+  max-width: 350px; 
+  max-height: 350px;
   display: flex;
 }
 
-.el-button{
-  //margin-left: 30%;
+.spinner {
+  margin-left: 50px;
+  max-width: 350px; 
+  max-height: 350px;
   display: flex;
 }
 
-.btnGenerar{
-  width: 100%;
-  font-size: 16px;
-  margin-top: 10px;
-}
+@media (max-width: 1250px) {
 
-.spinner{
-  margin-left: 60%;
-  margin-top: 15%;
-  width: 10%;
-}
-
-.qr{
-  width: 300px;
-}
-
-@media screen and (max-width: 1200px) {
-
-
-  .radiobtn{
-    display: grid;
-  }
-
-  .colorpicker-label{
-    //margin-left: 15%;
-    display: table;
-  }
-
-  .colorpicker{
-    margin-left: 20%;
-    border: none;
-    border-radius: 10px;
-    margin-top: 5%;
-    width: 70%;
-    height: 20px;
-  }
-
-  .colorpicker-div{
-    margin-left: 50%;
-    margin-top: -23%;
+  .contenedores {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
-  .el-button{
-    margin-top: 10px;
+  .optionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
+  .qrStyleSelector{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mat-label {
+    font-weight: 500;
+    font-size:large;
+  }
+
+  .urlSelector{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10%;
+
+    .mat-label {
+      font-weight: 500;
+      font-size:large;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center ;
+      width: 10%;
+    }
+    .formfield {
+      display: flex;
+      align-self: right;
+      width: 80%;
+    }
+  }
 }
 
-/* Media query para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  .contenedor-principal {
-    margin: 10% 0;
+@media (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+  }
+
+  .qr{
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  .spinner{
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  .optionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .qrStyleSelector{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin-bottom: 50px;
   }
 
   .radiobtn{
     display: flex;
-    margin-bottom: 10%;
-  }
-
-  .contenedores {
     flex-direction: column;
+    }
+
+  .mat-label {
+    font-weight: 500;
+    font-size: large;
   }
 
-  .contenedor {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-  }
+  .urlSelector{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40%;
 
-  .el {
-    width: 100%;
-    text-align: left;
-    padding: 5px;
-  }
+    .formfield {
+      width: 100%;
+    }
 
-  .el-img {
-    padding: 0;
-    margin-bottom: 20%;
-    text-align: center;
   }
-
-  .el-button{
-    margin-top: 5px;
-    margin-left: -5%;
-    display: block;
-  }
-
-  .colorpicker-div{
-    margin-top: 5%;
-    margin-left: 0%;
-  }
-
-  .colorpicker-label{
-    margin-left: 4%;
-  }
-
-  .colorpicker{
-    margin-top: -5%;
-    margin-left: -25%;
-    width: 50px;
-    height: 50px;
-  }
-
-  .spinner{
-    margin-top: 35%;
-    margin-left: 30%;
-    width: 30px;
-    height: 30px;
-  }
-
-  .qr{
-    width: 200px;
-    margin-left: -25px;
-  }
-
-  .btnGenerar{
-    width: 300px;
-    height: 50px;
-    font-size: 20px;
+  
+  .contenedores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
