@@ -21,6 +21,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.compone
     HttpClientModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    FontAwesomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
