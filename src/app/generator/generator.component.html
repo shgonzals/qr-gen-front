@@ -9,7 +9,7 @@
               <input matInput [(ngModel)]="url" maxLength="500">
             </mat-form-field>
           </div>
-          
+
           <div class="optionBox">
             <div class="qrStyleSelector">
               <mat-label class="mat-label">Estilo de QR</mat-label>
@@ -23,20 +23,23 @@
               <mat-label class="mat-label" style="margin-right: 0!important;">Seleccionar color:</mat-label>
               <input [(colorPicker)]="color" [style.background-color]="color" readonly class="colorpicker">
             </div>
-          </div>  
-          
+          </div>
+
         </div>
 
         <div class="btnGenerar">
           <button mat-raised-button color="accent" (click)="generarQR()">Generar</button>
         </div>
-          
+
       </div>
 
       <div class="contenedor-img">
         <mat-spinner color="accent" class="spinner" *ngIf="isLoading"> <!--*ngIf="isLoading" -->
         </mat-spinner>
         <img [src]="image"  class="qr">
+        <button mat-button (click)="downloadImg()" *ngIf="showBtnDownload" class="downloadButton">
+          <fa-icon [icon]="faDownload" style="font-size: 25px;"></fa-icon>
+        </button>
       </div>
 
     </div>

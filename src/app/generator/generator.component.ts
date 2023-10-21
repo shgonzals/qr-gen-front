@@ -5,7 +5,7 @@ import { QrGenModel } from '../models/qrgen-model';
 import { GenerateQRService } from '../services/generate-qr-service';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { faDownload } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de importar faDownload desde FontAwesome
 
 @Component({
   selector: 'app-generator',
@@ -20,6 +20,9 @@ export class GeneratorComponent {
   color: string = '#000000';
   image: string = "./assets/images/qrcode-solid.svg";
   isLoading: boolean = false;
+  showBtnDownload: boolean = false;
+  faDownload = faDownload;
+
 
   data: QrGenModel = new QrGenModel();
 
@@ -27,6 +30,13 @@ export class GeneratorComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ErrorDialogComponent);
+  }
+
+  downloadImg() {
+    const link = document.createElement('a');
+    link.href = this.image;
+    link.download = 'QR.png';
+    link.click();
   }
 
   generarQR() {
@@ -43,11 +53,13 @@ export class GeneratorComponent {
       setTimeout(() => {
         this.image = urlCreator.createObjectURL(blob);
         this.isLoading = false;
+        this.showBtnDownload = true;
       }, 1000);
 
     }, error => {
       console.log(error);
       this.isLoading = false;
+      this.showBtnDownload = false;
       this.openDialog();
     });
   }
