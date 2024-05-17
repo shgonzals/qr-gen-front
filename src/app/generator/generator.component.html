@@ -34,14 +34,17 @@
       </div>
 
       <div class="contenedor-img">
-        <mat-spinner color="accent" class="spinner" *ngIf="isLoading"> <!--*ngIf="isLoading" -->
-        </mat-spinner>
+        @if(isLoading){
+          <mat-spinner color="accent" class="spinner">
+          </mat-spinner>
+        }
         <img [src]="image"  class="qr">
-        <button mat-button (click)="downloadImg()" *ngIf="showBtnDownload" class="downloadButton">
-          <!--
-          <fa-icon [icon]="faDownload" style="font-size: 25px;"></fa-icon>
-          -->
-        </button>
+        @if(showBtnDownload){
+          <button mat-button (click)="downloadImg()" class="downloadButton">
+            <fa-icon [icon]="faDownload" style="font-size: 25px;"></fa-icon>
+          </button>
+        }
+
       </div>
 
     </div>

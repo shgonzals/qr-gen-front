@@ -9,7 +9,7 @@ import { LoggerService } from './logger.service';
 export class GenerateQRService {
   constructor(private http: HttpClient, private loggerService: LoggerService) {}
 
-  GEN_API :string = "https://qrgen.shgonzals.es/api/generateQR";
+  GEN_API: string = "https://qrgen.shgonzals.es/api/generateQR";
 
   generarQR(data: QrGenModel) {
     this.loggerService.emit('Generate QR');
