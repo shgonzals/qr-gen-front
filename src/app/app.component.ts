@@ -3,8 +3,13 @@ import { setupOpenTelemetry } from './otel/otel.config';
 import { trace, SpanStatusCode } from '@opentelemetry/api';
 import { loggerProvider } from './otel/otel.config';
 import { LoggerService } from './services/logger.service';
+import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from './shared/footer/footer.component';
+import { TopbarComponent } from './shared/topbar/topbar.component';
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, FooterComponent, TopbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

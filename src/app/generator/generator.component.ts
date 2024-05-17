@@ -4,11 +4,25 @@ import { HttpClient } from '@angular/common/http';
 import { QrGenModel } from '../models/qrgen-model';
 import { GenerateQRService } from '../services/generate-qr-service';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
-import { faDownload } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de importar faDownload desde FontAwesome
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+//import { faDownload } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de importar faDownload desde FontAwesome
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-generator',
+  standalone: true,
+  imports: [MatFormFieldModule, MatRadioModule, MatInputModule, MatIconModule,
+     MatProgressSpinnerModule, ColorPickerModule, FormsModule, CommonModule, MatDialogModule,
+     MatButtonModule
+     ],
   templateUrl: './generator.component.html',
   styleUrls: ['./generator.component.scss'],
   animations: [fadeAnimation]
@@ -21,7 +35,7 @@ export class GeneratorComponent {
   image: string = "./assets/images/qrcode-solid.svg";
   isLoading: boolean = false;
   showBtnDownload: boolean = false;
-  faDownload = faDownload;
+  //faDownload = faDownload;
 
 
   data: QrGenModel = new QrGenModel();
