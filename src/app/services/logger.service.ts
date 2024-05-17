@@ -1,4 +1,3 @@
-import { trace } from '@opentelemetry/api';
 import { loggerProvider } from "../otel/otel.config";
 import { Injectable } from '@angular/core';
 
@@ -6,9 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoggerService  {
-  private tracer = trace.getTracer('angular-tracer');
-  private logger = loggerProvider.getLogger('angular-logger');
-
+  private logger = loggerProvider.getLogger('qrgen', '1.0.0');
 
   emit(body: string){
     this.logger.emit({

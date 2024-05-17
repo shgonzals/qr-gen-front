@@ -15,6 +15,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { LoggerService } from '@app/services/logger.service';
 
 @Component({
   selector: 'app-generator',
@@ -40,7 +41,8 @@ export class GeneratorComponent {
 
   data: QrGenModel = new QrGenModel();
 
-  constructor(private http: HttpClient, private generateService: GenerateQRService, public dialog: MatDialog) {}
+  constructor(private http: HttpClient, private generateService: GenerateQRService,
+    public dialog: MatDialog, private loggerService: LoggerService) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ErrorDialogComponent);
@@ -51,6 +53,9 @@ export class GeneratorComponent {
     link.href = this.image;
     link.download = 'QR.png';
     link.click();
+
+    this.loggerService.emit('Download QR');
+
   }
 
   generarQR() {
