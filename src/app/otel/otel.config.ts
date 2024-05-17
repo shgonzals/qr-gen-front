@@ -16,7 +16,7 @@ import { SEMRESATTRS_SERVICE_INSTANCE_ID, SEMRESATTRS_SERVICE_NAME, SEMRESATTRS_
 import { ConsoleLogRecordExporter, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
 
 const collectorOptions = {
-  url: 'https://jaeger.joboufra.es:32250', // url is optional and can be omitted - default is http://localhost:4318/v1/traces
+  url: '10.20.10.10:32250', // url is optional and can be omitted - default is http://localhost:4318/v1/traces
   headers: {}, // an optional object containing custom headers to be sent with each request
   concurrencyLimit: 10, // an optional limit on pending requests
 };
