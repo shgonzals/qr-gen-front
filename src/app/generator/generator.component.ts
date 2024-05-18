@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { fadeAnimation } from  '../../animations/fade.animation';
+import { fadeAnimation } from '../../animations/fade.animation';
 import { HttpClient } from '@angular/common/http';
 import { QrGenModel } from '../models/qrgen-model';
 import { GenerateQRService } from '../services/generate-qr-service';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { faDownload } from '@fortawesome/free-solid-svg-icons'; // Asegúrate de importar faDownload desde FontAwesome
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { FormsModule } from '@angular/forms';
 
@@ -21,26 +21,39 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-generator',
   standalone: true,
-  imports: [MatFormFieldModule, MatRadioModule, MatInputModule, MatIconModule, MatProgressSpinnerModule, ColorPickerModule, FormsModule, MatDialogModule, MatButtonModule, FontAwesomeModule],
+  imports: [
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    ColorPickerModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    FontAwesomeModule,
+  ],
   templateUrl: './generator.component.html',
   styleUrls: ['./generator.component.scss'],
-  animations: [fadeAnimation]
+  animations: [fadeAnimation],
 })
 export class GeneratorComponent {
-
-  url: string = "qrgen.shgonzals.es";
+  url: string = 'qrgen.shgonzals.es';
   type: number = 1;
   color: string = '#000000';
-  image: string = "./assets/images/qrcode-solid.svg";
+  image: string = './assets/images/qrcode-solid.svg';
   isLoading: boolean = false;
   showBtnDownload: boolean = false;
   faDownload = faDownload;
 
-
   data: QrGenModel = new QrGenModel();
 
-  constructor(private http: HttpClient, private generateService: GenerateQRService,
-    public dialog: MatDialog, private loggerService: LoggerService) {}
+  constructor(
+    private http: HttpClient,
+    private generateService: GenerateQRService,
+    public dialog: MatDialog,
+    private loggerService: LoggerService,
+  ) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ErrorDialogComponent);
@@ -52,33 +65,34 @@ export class GeneratorComponent {
     link.download = 'QR.png';
     link.click();
 
-    this.loggerService.emit('Download QR');
-
+    this.loggerService.emit('info', 'Download QR');
   }
 
   generarQR() {
-    this.image = "";
+    this.image = '';
     this.isLoading = true;
     this.data.rgb = this.hexToRgb(this.color);
     this.data.content = this.url;
     this.data.type = this.type;
-    this.generateService.generarQR(this.data).subscribe(response => {
-      const arrayBufferView = new Uint8Array(response);
-      const blob = new Blob([arrayBufferView], { type: 'image/png' });
-      const urlCreator = window.URL || window.webkitURL;
+    this.generateService.generarQR(this.data).subscribe(
+      (response) => {
+        const arrayBufferView = new Uint8Array(response);
+        const blob = new Blob([arrayBufferView], { type: 'image/png' });
+        const urlCreator = window.URL || window.webkitURL;
 
-      setTimeout(() => {
-        this.image = urlCreator.createObjectURL(blob);
+        setTimeout(() => {
+          this.image = urlCreator.createObjectURL(blob);
+          this.isLoading = false;
+          this.showBtnDownload = true;
+        }, 1000);
+      },
+      (error) => {
+        console.log(error);
         this.isLoading = false;
-        this.showBtnDownload = true;
-      }, 1000);
-
-    }, error => {
-      console.log(error);
-      this.isLoading = false;
-      this.showBtnDownload = false;
-      this.openDialog();
-    });
+        this.showBtnDownload = false;
+        this.openDialog();
+      },
+    );
   }
 
   hexToRgb(hex: string): number[] {

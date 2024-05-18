@@ -11,18 +11,18 @@ import { TopbarComponent } from './shared/topbar/topbar.component';
   standalone: true,
   imports: [RouterOutlet, FooterComponent, TopbarComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   private tracer = trace.getTracer('angular-tracer');
   private logger = loggerProvider.getLogger('angular-logger');
 
-  constructor(private loggerService: LoggerService){
+  constructor(private loggerService: LoggerService) {
     setupOpenTelemetry();
   }
 
   ngOnInit() {
-    this.loggerService.emit('Application initialized');
+    this.loggerService.emit('info', 'Application initialized');
 
     const span = this.tracer.startSpan('initialize');
 
@@ -30,7 +30,12 @@ export class AppComponent implements OnInit{
       // Simulate some work
       this.doWork();
     } catch (error) {
-      span.setStatus({ code: SpanStatusCode.ERROR, message: (error as Error).message });
+      span.setStatus({
+        code: SpanStatusCode.ERROR,
+        message: (error as Error).message,
+      });
+
+      this.loggerService.emit('error', 'Simulate some error');
     } finally {
       span.end();
     }

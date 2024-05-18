@@ -24,9 +24,7 @@ import {
 } from '@opentelemetry/sdk-logs';
 
 const collectorOptions = {
-  url: 'https://jaeger.joboufra.es/v1/traces', // url is optional and can be omitted - default is http://localhost:4318/v1/traces
-  headers: {}, // an optional object containing custom headers to be sent with each request
-  concurrencyLimit: 10, // an optional limit on pending requests
+  url: 'https://jaeger.joboufra.es/v1/traces',
 };
 
 export const loggerProvider = new LoggerProvider();
