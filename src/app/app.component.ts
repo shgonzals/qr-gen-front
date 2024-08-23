@@ -1,5 +1,4 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
-import { LoggerService } from './services/logger.service';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TopbarComponent } from './shared/topbar/topbar.component';
@@ -17,11 +16,8 @@ import { ApmErrorHandler, ApmService } from '@elastic/apm-rum-angular';
     },
   ],
 })
-export class AppComponent implements OnInit {
-  constructor(
-    private loggerService: LoggerService,
-    service: ApmService,
-  ) {
+export class AppComponent {
+  constructor(service: ApmService) {
     // Agent API is exposed through this apm instance
     const apm = service.init({
       serviceName: 'qr-gen-front',
@@ -35,9 +31,5 @@ export class AppComponent implements OnInit {
       id: 'bar',
     });
     */
-  }
-
-  ngOnInit() {
-    this.loggerService.emit('info', 'Application initialized');
   }
 }

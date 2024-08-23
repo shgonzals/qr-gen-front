@@ -15,7 +15,6 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { FormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
-import { LoggerService } from '@app/services/logger.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -52,7 +51,6 @@ export class GeneratorComponent {
     private http: HttpClient,
     private generateService: GenerateQRService,
     public dialog: MatDialog,
-    private loggerService: LoggerService,
   ) {}
 
   openDialog(): void {
@@ -64,8 +62,6 @@ export class GeneratorComponent {
     link.href = this.image;
     link.download = 'QR.png';
     link.click();
-
-    this.loggerService.emit('info', 'Download QR');
   }
 
   generarQR() {
