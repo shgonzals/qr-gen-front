@@ -1,61 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { setupOpenTelemetry } from './otel/otel.config';
-import { trace, SpanStatusCode } from '@opentelemetry/api';
-import { loggerProvider } from './otel/otel.config';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { LoggerService } from './services/logger.service';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TopbarComponent } from './shared/topbar/topbar.component';
+import { ApmErrorHandler, ApmService } from '@elastic/apm-rum-angular';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FooterComponent, TopbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApmErrorHandler,
+    },
+  ],
 })
 export class AppComponent implements OnInit {
-  private tracer = trace.getTracer('angular-tracer');
-  private logger = loggerProvider.getLogger('angular-logger');
+  constructor(
+    private loggerService: LoggerService,
+    service: ApmService,
+  ) {
+    // Agent API is exposed through this apm instance
+    const apm = service.init({
+      serviceName: 'qr-gen-front',
+      serverUrl: 'http://10.20.10.10:8200',
+      environment: 'pro',
+    });
 
-  constructor(private loggerService: LoggerService) {
-    setupOpenTelemetry();
+    /*
+    apm.setUserContext({
+      username: 'foo',
+      id: 'bar',
+    });
+    */
   }
 
   ngOnInit() {
     this.loggerService.emit('info', 'Application initialized');
-
-    const span = this.tracer.startSpan('initialize');
-
-    try {
-      // Simulate some work
-      this.doWork();
-    } catch (error) {
-      span.setStatus({
-        code: SpanStatusCode.ERROR,
-        message: (error as Error).message,
-      });
-
-      this.loggerService.emit('error', 'Simulate some error');
-    } finally {
-      span.end();
-    }
-  }
-
-  doWork() {
-    const span = this.tracer.startSpan('doWork');
-    // Simulate some work by sleeping
-    setTimeout(() => {
-      this.logger.emit({
-        severityText: 'info',
-        body: 'Work completed',
-      });
-
-      this.logger.emit({
-        severityText: 'error',
-        body: 'Work completed',
-      });
-
-      span.end();
-    }, 1000);
   }
 }
